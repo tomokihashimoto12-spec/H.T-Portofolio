@@ -1,0 +1,461 @@
+body {
+    margin: 0;
+    padding: 0;
+    min-height: 100vh; /* Memastikan body mengisi seluruh viewport */
+    
+    justify-content: center;
+    align-items: center;
+    position: relative; /* Penting agar gambar absolute mengikuti body/main-container */
+    overflow: hidden; /* Mencegah gambar yang diposisikan absolute membuat scrollbar */
+}
+body { background: linear-gradient(135deg,  #b0bec5, #78909c); }
+
+.main-container {
+    width: 100%;
+    height: 100vh; /* Agar container menutupi seluruh tinggi viewport */
+    position: relative; /* Penting untuk penempatan gambar absolute di dalamnya */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.info-box {
+    display: flex;
+    align-items: center;
+    background-color:aliceblue;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    max-width: 900px; /* Lebar maksimum kotak info */
+    width: 90%;
+    position: relative; /* Pastikan kotak info juga relatif agar di atas gambar latar */
+    z-index: 10; /* Untuk memastikan kotak info berada di atas gambar Godzilla/stickps */
+}
+
+.text-content {
+    flex: 2; /* Mengambil sebagian besar ruang */
+    padding-right: 30px;
+}
+
+.text-content p {
+    
+    line-height: 1.6;
+    font-size: larger;
+    font-family: cursive;
+    font-style: italic;
+  
+}
+
+.text-content h2 {
+    font-size: 4em;
+    margin: 0 0 15px 0;
+   font-family:monospace;
+}
+
+.illustration {
+    flex: 1; /* Mengambil sisa ruang */
+    text-align: right;
+}
+
+.illustration img {
+    max-width: 100%;
+    height: auto;
+    display: block; /* Menghilangkan spasi ekstra di bawah gambar */
+}
+
+/* --- Styling untuk Gambar Godzilla dan Stick PS --- */
+
+.godzilla-image {
+    position: absolute;
+    bottom: -50px; /* Geser sedikit keluar viewport agar hanya terlihat sebagian */
+    left: -550px;  /* Geser sedikit keluar viewport */
+    z-index: 1; /* Pastikan di bawah kotak info */
+}
+
+.stickps-image {
+    position: absolute;
+    top: 7px; /* Geser sedikit keluar viewport */
+    right: -200px; /* Geser sedikit keluar viewport */
+    width: 50%; /* Ukuran stik PS, sesuaikan jika perlu */
+    transform: rotate(20deg); /* Rotasi untuk efek dinamis */
+    z-index: 1; /* Pastikan di bawah kotak info */
+}
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
+  
+}
+.mySlides {
+  display: none;
+    /* Tambahkan ini untuk menengahkan konten */
+    display: flex; /* Mengaktifkan Flexbox */
+    justify-content: center; /* Menengahkan secara horizontal (sumbu utama) */
+    align-items: center; /* Menengahkan secara vertikal (sumbu silang) */
+    flex-direction: row; /* Atur arah tata letak */
+    gap: 30px; /* Jarak antar card, opsional */
+    height: 100vh; /* Penting! Memastikan slide mengambil tinggi penuh agar penengahan vertikal bekerja */
+    width: 100%;
+}
+
+.prev, .next {
+  cursor: pointer;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 16px;
+  color: rgba(57, 75, 155, 0.796);
+  font-weight: bold;
+  font-size: 80px;
+  transition: 0.3s ease;
+  user-select: none;
+}
+.prev {
+  left: 10px;
+}
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+.prev, .next {
+  color: rgba(57, 75, 155, 0.8);
+  text-shadow: 0 0 5px rgba(255,255,255,0.7);
+}
+
+/* On hover, add a black background color with a little bit see-through */
+.prev:hover, .next:hover {
+   color: #fff;
+  text-shadow: 0 0 10px #fff;
+}
+
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
+}
+
+.slideshow-container2 {
+    position: relative;
+    overflow: hidden;
+    height: 100vh;
+    width: 100%;
+}
+
+.mySlides2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80%;
+     overflow: visible;
+    transition: transform 0.5s ease;
+}
+
+/* Misal konten di dalam slide adalah gambar */
+.mySlides2 img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 80%;
+    transform: translate(-50%, -50%);
+    max-width: 100%;
+    max-height: 100%;
+}
+
+
+@keyframes fade {
+  from {opacity: .4}
+  to {opacity: 1}
+}
+.rain {
+    position: absolute;
+    top: 0;
+    left: 50%; /* sesuaikan */
+    transform: translateX(-50%);
+    z-index: 10; /* agar muncul di atas elemen lain */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content:space-around;
+    
+}
+.rain img{
+    width: 50px;
+    animation: rain 7s linear infinite;
+}
+@keyframes rain{
+    0%{
+        transform: translate(0);
+        opacity: 0;
+    }
+      50%{ 
+        opacity: 1;
+    }
+      70%{
+        opacity: 1;
+    }
+      100%{
+        transform: translateY(80vh);
+        opacity: 0;
+    }
+    
+}
+
+.rain img:nth-child(1){
+    width: 25px;
+    animation-delay: 2s;
+}
+.rain img:nth-child(2){
+    animation-delay: 1s;
+}
+.rain img:nth-child(3){
+    animation-delay: 3s;
+    width: 25px;
+}
+.rain img:nth-child(4){
+    animation-delay: 4.5s;
+}
+.rain img:nth-child(5){
+    animation-delay: 3s;
+}
+.rain img:nth-child(6){
+    width: 20px;
+    animation-delay: 6s;
+}
+.rain img:nth-child(7){
+    width: 5px;
+    animation-delay: 7s;
+}
+.rain img:nth-child(8){
+    width: 35px;
+    animation-delay: 8s;
+}
+.rain img:nth-child(9){
+    width: 25px;
+    animation-delay: 2s;
+}
+.rain img:nth-child(10){
+    width: 20px;
+    animation-delay: 4s;
+}
+
+.season-buttons {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 100; /* biar di atas slideshow */
+  display: flex;
+  gap: 10px;
+}
+
+.season-buttons button {
+  
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: bold;
+  color: black;
+  transition: 0.3s;
+}
+
+/* Warna tiap musim */
+body.spring .season-buttons button#spring-btn {
+  background-color: #f10f93; /* hijau cerah */
+}
+
+body.summer .season-buttons button#summer-btn {
+  background-color: #ffcc00; /* kuning matahari / summer */
+}
+
+body.autumn .season-buttons button#autumn-btn {
+  background-color: #ff8c42; /* jingga daun autumn */
+}
+
+body.winter .season-buttons button#winter-btn {
+  background-color: #00bfff; /* biru dingin */
+}
+
+.title{
+    position: absolute;      /* agar bisa bebas di atas slide */
+    top: 20px;               /* jarak dari atas */
+    left: 20px;              /* jarak dari kiri */
+    color: black;             /* warna teks */
+    font-size: 2.5em;        /* ukuran font besar */
+    font-weight: bold;       /* tebal */
+    text-transform: uppercase; /* huruf kapital semua */
+    letter-spacing: 2px;     /* spasi antar huruf */
+    text-shadow: 2px 2px 8px rgba(0,0,0,0.6); /* shadow supaya terlihat */
+    z-index: 10;             /* pastikan di atas slide */
+   
+}
+
+footer {
+    position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  background-color: #222;
+  color: #fff;
+  padding: 10px 0;
+  font-size: 14px;
+  z-index: 100; /* pastikan di atas elemen lain */
+}
+
+/* Styling border/kotak utama */
+.card-border {
+   width: 600px;
+    height: 90%;
+    border: 3px solid #040404; 
+    border-radius: 10px;
+    overflow: hidden; 
+    position: relative; 
+    cursor: pointer; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.card-container-wrapper {
+    /* Agar pembungkus mengambil ruang yang cukup untuk penengahan */
+    width: 100%;
+    height: 100vh;
+    
+    /* Mengaktifkan Flexbox */
+    display: flex;
+    justify-content: center; /* Menengahkan card secara horizontal */
+    align-items: center; /* Menengahkan card secara vertikal */
+    gap: 30px; /* Jarak antar card */
+}
+
+/* Styling teks judul */
+.judul {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); /* Menempatkan di tengah */
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #000000;
+    /* Properti transisi */
+    transition: all 0.5s ease-in-out; 
+}
+
+/* Styling penjelasan yang tersembunyi */
+.penjelasan {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    box-sizing: border-box;
+    font-size: 1em;
+    
+    /* Awal: Sembunyikan dan geser ke bawah */
+    opacity: 0; 
+    transform: translateY(100%); 
+    
+    /* Properti transisi */
+    transition: all 0.5s ease-in-out;
+}
+.penjelasan h1{
+  color: rgb(0, 0, 0);
+  
+  font-weight: bold;
+}
+
+
+
+
+.card-border:hover .judul {
+    opacity: 0; 
+    transform: translate(150%, 50%); 
+}
+
+
+.card-border .penjelasan {
+    
+    opacity: 0; /* Awalnya tersembunyi */
+    transform: translateX(-100%); 
+}
+
+.card-border:hover .penjelasan {
+    opacity: 1; 
+    transform: translateX(0); /* Menggeser kembali ke posisi semula (tengah) */
+}
+
+
+
+.social-icons-container {
+   
+
+  
+    position: absolute; 
+    top: 70px; /* Jarakkan dari atas (di bawah season-buttons) */
+    right: 20px; /* Sejajarkan dengan tombol musim di kanan */
+    z-index: 90; /* Pastikan di atas elemen non-tombol lainnya, tapi di bawah tombol musim */
+
+    /* Gunakan Flexbox untuk menata icon secara horizontal */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    gap: 10px;
+    
+    /* Hapus width: 100% dan padding jika tidak diperlukan */
+    padding: 0; /* Hapus padding yang tidak diperlukan */
+    width: auto; /* Biarkan lebarnya sesuai konten */
+}
+
+.icon-link:hover {
+    background-color: rgb(9, 9, 9);
+    /* Tambahkan warna icon saat hover agar terlihat */
+    color: #5b21b6; /* Contoh warna ungu dari background body */
+ 
+}
+
+.icon-link {
+    /* Jarak antar icon */
+    margin-right: 15px; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    /* Ukuran lingkaran */
+    width: 45px;
+    height: 45px;
+    
+    /* Membuat bentuk lingkaran */
+    border-radius: 50%;
+    
+    /* Garis batas (border) putih */
+    border: 2px solid rgb(5, 5, 5);
+    
+    /* Warna icon (putih) */
+    color: rgb(16, 16, 16); 
+    
+    /* Ukuran icon */
+    font-size: 1.2em;
+    text-decoration: none; /* Hilangkan garis bawah pada link */
+    
+    /* Transisi untuk efek hover halus (opsional) */
+    transition: all 0.3s ease;
+}
+
+/* Styling untuk teks inisial (IH dan P) */
+.custom-text {
+    font-size: 0.8em; /* Sesuaikan ukuran teks di dalam lingkaran */
+    font-weight: bold;
+}
+
+/* Efek saat mouse diarahkan ke icon (opsional) */
+.icon-link:hover {
+    background-color: rgb(176, 50, 218);
+   
+}
