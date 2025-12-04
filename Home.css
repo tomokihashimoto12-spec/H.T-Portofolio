@@ -460,6 +460,46 @@ footer {
    
 }
 
+/* --- Styling Khusus Multi-Bahasa --- */
+
+/* Tombol Pengubah Bahasa */
+.lang-switcher {
+    position: absolute;
+    top: 20px;
+    right: 300px; /* Posisikan di kiri tombol season */
+    z-index: 100;
+    display: flex;
+    gap: 5px;
+}
+.lang-switcher button {
+    padding: 5px 10px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #fff;
+    transition: 0.3s;
+}
+.lang-switcher button.active {
+    background-color: #5b21b6; /* Warna aktif */
+    color: white;
+    border-color: #5b21b6;
+}
+
+/* Sembunyikan Bahasa Jepang secara default */
+.jp {
+    display: none;
+}
+
+/* Tampilkan Bahasa Jepang dan Sembunyikan Bahasa Inggris saat body memiliki class 'japanese-mode' */
+body.japanese-mode .en {
+    display: none;
+}
+body.japanese-mode .jp {
+    display: inline; /* Gunakan inline atau block tergantung elemen */
+}
+
+
 
 
 
