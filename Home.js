@@ -130,3 +130,42 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.toggle('active');
         });
     });
+  // --- Fungsionalitas Pengubah Bahasa (English/Japanese) ---
+
+const body = document.body;
+const btnEn = document.getElementById('btn-en');
+const btnJp = document.getElementById('btn-jp');
+
+function setLanguage(lang) {
+    if (lang === 'jp') {
+        // Aktifkan mode Jepang
+        body.classList.add('japanese-mode');
+        btnJp.classList.add('active');
+        btnEn.classList.remove('active');
+        localStorage.setItem('userLang', 'jp');
+    } else {
+        // Aktifkan mode Inggris
+        body.classList.remove('japanese-mode');
+        btnEn.classList.add('active');
+        btnJp.classList.remove('active');
+        localStorage.setItem('userLang', 'en');
+    }
+}
+
+// Event Listeners untuk tombol bahasa
+if (btnEn && btnJp) {
+    btnEn.addEventListener('click', () => setLanguage('en'));
+    btnJp.addEventListener('click', () => setLanguage('jp'));
+}
+
+
+// Cek bahasa pilihan terakhir saat halaman dimuat
+document.addEventListener('DOMContentLoaded', () => {
+    const savedLang = localStorage.getItem('userLang');
+    if (savedLang) {
+        setLanguage(savedLang);
+    } else {
+        // Default ke Inggris jika belum ada pilihan
+        setLanguage('en');
+    }
+});
