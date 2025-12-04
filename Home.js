@@ -130,7 +130,8 @@ document.addEventListener('DOMContentLoaded', function() {
             card.classList.toggle('active');
         });
     });
-// --- Fungsionalitas Pengubah Bahasa (English/Japanese) ---
+
+    // --- Fungsionalitas Pengubah Bahasa (English/Japanese) ---
 
 const body = document.body;
 const btnEn = document.getElementById('btn-en');
@@ -169,4 +170,3 @@ document.addEventListener('DOMContentLoaded', () => {
         setLanguage('en');
     }
 });
-
